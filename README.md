@@ -1,17 +1,18 @@
-# Lexical Analyzer and Syntax Analyzer
+# Lexical Analyser and Syntax Analyser
 
-This is a simple C project that performs lexical analysis and basic syntax
-analysis for C source files. It is intentionally kept small and easy to
-understand.
+A small C project that performs lexical analysis and basic syntax analysis for
+C source files. The code is intentionally structured so it is easy to read,
+explain, and rewrite for coursework or decision-making AI demonstrations.
 
 ## Features
 
 - Detects keywords, identifiers, numbers, strings, characters, comments,
   preprocessor lines, operators, and punctuators.
-- Checks basic syntax such as matching brackets, missing semicolons in common
-  statements, and correct parentheses after `if`, `for`, `while`, and `switch`.
-- Prints a colored token table and simple syntax error messages.
-- Keeps every `.c` file at 100 lines or less.
+- Checks basic syntax such as matching brackets, common missing semicolons, and
+  parentheses after `if`, `for`, `while`, and `switch`.
+- Prints an ASCII logo banner, colored token table, syntax result, and summary.
+- Asks whether the same analyser output should be saved to a text file.
+- Names saved reports from the input source file, such as `sample_run.txt`.
 
 ## Build
 
@@ -22,15 +23,22 @@ make
 ## Run
 
 ```sh
-./lexical_analyzer examples/sample.c
+./lexical_analyser examples/sample.c
 ```
+
+or:
+
+```sh
+make run
+```
+
+When prompted, type `yes` to save the token and syntax report, or `no` to only
+show it in the terminal.
 
 ## Files
 
 ```text
-include/   one header file
-src/       small source files
+include/   shared analyser declarations
+src/       lexer, syntax checker, display, keywords, and main program
 examples/  sample input program
 ```
-
-Use `make linecheck` to verify the 100-line limit for `.c` files.

@@ -1,6 +1,8 @@
 #ifndef ANALYZER_H
 #define ANALYZER_H
 
+#include <stdio.h>
+
 #define MAX_TOKENS 2000
 #define MAX_LEXEME 80
 
@@ -8,6 +10,7 @@
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
 #define BLUE "\033[34m"
+#define MAGENTA "\033[35m"
 #define CYAN "\033[36m"
 #define RESET "\033[0m"
 
@@ -35,6 +38,9 @@ typedef struct {
 int lexical_analyze(const char *source, Token tokens[], int max_tokens);
 int syntax_analyze(Token tokens[], int count);
 void print_tokens(Token tokens[], int count);
+void print_banner(FILE *out, int colors);
+void print_tokens_report(FILE *out, Token tokens[], int count, int colors);
+int syntax_analyze_report(FILE *out, Token tokens[], int count, int colors);
 const char *token_type_name(TokenType type);
 int is_keyword(const char *word);
 

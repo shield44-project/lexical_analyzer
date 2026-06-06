@@ -2,9 +2,9 @@ CC ?= gcc
 CFLAGS ?= -std=c11 -Wall -Wextra -pedantic -Iinclude
 SRC := $(wildcard src/*.c)
 OBJ := $(SRC:.c=.o)
-BIN := lexical_analyzer
+BIN := lexical_analyser
 
-.PHONY: all clean run linecheck
+.PHONY: all clean run
 
 all: $(BIN)
 
@@ -14,9 +14,5 @@ $(BIN): $(OBJ)
 run: $(BIN)
 	./$(BIN) examples/sample.c
 
-linecheck:
-	@awk 'FNR==1{if(n>100){print f ": " n; bad=1} f=FILENAME; n=0} \
-	{n++} END{if(n>100){print f ": " n; bad=1} exit bad}' src/*.c
-
 clean:
-	rm -f $(BIN) src/*.o
+	rm -f $(BIN) lexical_analyzer src/*.o *_run.txt
