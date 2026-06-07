@@ -42,6 +42,7 @@ void print_banner(FILE *out, int colors);
 void print_tokens_report(FILE *out, Token tokens[], int count, int colors);
 int syntax_analyze_report(FILE *out, Token tokens[], int count, int colors);
 const char *token_type_name(TokenType type);
+void loading_animation(const char *label, int duration_ms);
 int is_keyword(const char *word);
 
 #endif

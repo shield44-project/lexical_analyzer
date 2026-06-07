@@ -13,6 +13,8 @@ explain, and rewrite for coursework or decision-making AI demonstrations.
 - Prints an ASCII logo banner, colored token table, syntax result, and summary.
 - Asks whether the same analyser output should be saved to a text file.
 - Names saved reports from the input source file, such as `sample_run.txt`.
+- Includes a simple C-based browser GUI for pasting or loading code and viewing
+  terminal-style analyzer output, with a separate Keywords view.
 
 ## Build
 
@@ -34,6 +36,17 @@ make run
 
 When prompted, type `yes` to save the token and syntax report, or `no` to only
 show it in the terminal.
+
+## GUI
+
+```sh
+make gui
+```
+
+In the GUI, paste code directly into the editor or use **Load File** to open a
+source file. Press **Analyze Code** to populate the terminal-style output.
+Use **Terminal** for the full report and **Keywords** for keyword-only output.
+The command starts a local C server and opens the interface in your browser.
 
 ## Files
 

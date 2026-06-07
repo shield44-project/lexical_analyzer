@@ -1,6 +1,8 @@
 #define _POSIX_C_SOURCE 200809L
+#define _DEFAULT_SOURCE
 #include "analyzer.h"
 #include <stdio.h>
+#include <unistd.h>
 
 const char *token_type_name(TokenType type) {
     switch (type) {
@@ -65,4 +67,22 @@ void print_tokens_report(FILE *out, Token tokens[], int count, int colors) {
 
 void print_tokens(Token tokens[], int count) {
     print_tokens_report(stdout, tokens, count, 1);
+}
+
+void loading_animation(const char *label, int duration_ms) {
+    const char spinner[] = "|/-\\";
+    int i = 0;
+    int elapsed = 0;
+    int step = 100; // ms
+
+    printf("%s ", label);
+    fflush(stdout);
+    while (elapsed < duration_ms) {
+        printf("\b%c", spinner[i % 4]);
+        fflush(stdout);
+        usleep(step * 1000);
+        i++;
+        elapsed += step;
+    }
+    printf("\bDone!\n");
 }
